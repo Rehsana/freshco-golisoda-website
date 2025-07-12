@@ -1,0 +1,142 @@
+/* ✅ Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  color: #222;
+}
+
+/* 🔵 Top Bar */
+.top-bar {
+  background-color: #0074D9;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-bar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.top-bar a:hover {
+  color: #ffd700;
+}
+
+/* 🍔 Hamburger Menu */
+.hamburger-menu {
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  z-index: 999;
+}
+#menu-btn {
+  background-color: #3d8fec;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#menu-links {
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 160px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+}
+#menu-links a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+#menu-links a:hover {
+  background: #f5f5f5;
+}
+.menu-hidden {
+  display: none !important;
+}
+
+/* 🏷️ Branding + Slideshow */
+.container {
+  text-align: center;
+  padding: 120px 20px 30px; /* Space below menu */
+}
+.brand-title {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 2.8em;
+  color: #222;
+  margin-bottom: 10px;
+}
+.location {
+  font-size: 14px;
+  color: #666;
+}
+.tagline {
+  font-size: 1em;
+  color: #0074D9;
+  margin: 5px 0 30px;
+}
+
+/* 🖼️ Clean Slideshow Box */
+.slideshow-box {
+  width: 567px;
+  height: 378px;
+  margin: 0 auto;
+  position: relative;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+.slide-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.slide-img.active {
+  opacity: 1;
+  z-index: 1;
+}
+/* 🔠 AR ENTERPRISES Main Title */
+.main-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5em;
+  color: #166bdb;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+/* 🎨 Brand Colors */
+.brand-title {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+.blue-text {
+  color: #0074D9;  /* Blue */
+  margin-right: 5px;
+}
+
+.green-text {
+  color: #2ECC71;  /* Green */
+}

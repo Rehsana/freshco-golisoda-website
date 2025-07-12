@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AR ENTERPRISES | Freshco Golisoda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- 🔵 Top Blue Bar -->
+  <div class="top-bar">
+    <span>
+      📞 <a href="tel:+918590986069">+91 8590986069</a> |
+      ✉️ <a href="mailto:arfreshco@gmail.com">arfreshco@gmail.com</a>
+    </span>
+    <span>
+      <a href="https://www.instagram.com/freshco_kollam" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </span>
+  </div>
+
+  <!-- 🍔 Hamburger Menu -->
+  <div class="hamburger-menu">
+    <button id="menu-btn">≡ Menu</button>
+    <div id="menu-links" class="menu-hidden">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- 🏷️ Brand and Slideshow -->
+  <div class="container">
+    <h1 class="main-title">AR ENTERPRISES</h1>
+    <h1 class="brand-title">
+  <span class="blue-text">Freshco</span>
+  <span class="green-text">Golisoda</span>
+</h1>
+
+    <p class="location">Anchumukku, Keralapuram</p>
+    <p class="tagline">Taste the freshness, sip the energy.</p>
+
+    <div class="slideshow-box">
+      <img src="assets/images/freshco1.jpg" class="slide-img active" alt="Goli Soda 1" />
+      <img src="assets/images/freshco2.jpg" class="slide-img" alt="Goli Soda 2" />
+      <img src="assets/images/freshco3.jpg" class="slide-img" alt="Goli Soda 3" />
+    </div>
+  </div>
+
+  <!-- 🧠 Scripts -->
+  <script>
+    // Toggle menu visibility
+    document.getElementById("menu-btn").addEventListener("click", () => {
+      document.getElementById("menu-links").classList.toggle("menu-hidden");
+    });
+
+    // Slideshow logic
+    let current = 0;
+    const slides = document.querySelectorAll('.slide-img');
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 2500);
+  </script>
+</body>
+</html>

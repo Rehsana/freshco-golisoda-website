@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Products | AR ENTERPRISES</title>
+  <link rel="stylesheet" href="products.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="products-page">
+    <h1 class="products-heading">Our Products</h1>
+    <p class="products-subtext">Welcome to the official product page of AR Enterprises – Freshco Golisoda, Anchumukku, Keralapuram.</p>
+
+    <div class="product-grid">
+      <!-- 🔹 Product Cards -->
+      <div class="product-card">
+        <img src="assets/images/goli1.webp.jpg" alt="Chilli Guava">
+        <h3>Guava soda</h3>
+        <p class="price">₹20</p>
+        <a href="https://wa.me/918590986069?text=I%20want%20to%20order%20Chilli%20Guava20Golisoda" target="_blank" class="order-btn">Order Now</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/goli2.webp.jpg" alt="Ginger Masala">
+        <h3>Ginger soda</h3>
+        <p class="price">₹20</p>
+        <a href="https://wa.me/918590986069?text=I%20want%20to%20order%20Ginger%20Masala%20Golisoda" target="_blank" class="order-btn">Order Now</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/goli3.webp.jpg" alt="Jeera Masala ">
+        <h3>Classic Lemon</h3>
+        <p class="price">₹20</p>
+        <a href="https://wa.me/918590986069?text=I%20want%20to%20order%20Jeera%20Masala%20Golisoda" target="_blank" class="order-btn">Order Now</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/goli4.webp.jpg" alt="Pineapple Masala">
+        <h3>Jeera Masala</h3>
+        <p class="price">₹20</p>
+        <a href="https://wa.me/918590986069?text=I%20want%20to%20order%20Pineapple%20Masala%20Golisoda" target="_blank" class="order-btn">Order Now</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/goli5.webp.jpg" alt="Mango Bite">
+        <h3>Mango Bite</h3>
+        <p class="price">₹20</p>
+        <a href="https://wa.me/918590986069?text=I%20want%20to%20order%20Mango%20Bite%20Golisoda" target="_blank" class="order-btn">Order Now</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/goli6.webp.jpg" alt="Cola Twist">
+        <h3>Cola Twist</h3>
+        <p class="price">₹20</p>
+        <a href="https://wa.me/918590986069?text=I%20want%20to%20order%20Cola%20Twist%20Golisoda" target="_blank" class="order-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- ✅ Instructional Text -->
+    <div style="text-align: center; margin-top: 30px;">
+      <p style="font-size: 14px; color: #444; margin-bottom: 10px;">
+        Want to order multiple flavors? Tap the button below to place a custom WhatsApp order!
+      </p>
+
+      <!-- 🔘 Start GoliSoda Order Button -->
+      <button onclick="checkLocationAndOrder()" id="order-button" style="
+        background-color: #25d366;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      ">
+        📦 Start GoliSoda Order
+      </button>
+    </div>
+
+    <!-- 🔙 Back Button -->
+    <div class="back-home-container">
+      <a href="index.html" class="back-home-btn">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- ✅ JavaScript Logic for Custom Order + Location Check -->
+  <script>
+    function checkLocationAndOrder() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            const withinKollam =
+              lat >= 8.75 && lat <= 9.2 &&
+              lon >= 76.4 && lon <= 76.95;
+
+            if (withinKollam) {
+              startOrder(); // if inside Kollam → continue with order prompts
+            } else {
+              alert("❌ Sorry, we do not deliver to your location. We currently serve only the Kollam area.");
+            }
+          },
+          function (error) {
+            alert("⚠️ Location access denied. Please enable it to check delivery area.");
+          }
+        );
+      } else {
+        alert("❌ Your browser does not support location services.");
+      }
+    }
+
+    function startOrder() {
+      let orderList = [];
+      let addMore = true;
+
+      while (addMore) {
+        let flavor = prompt("Which flavor would you like?");
+        if (!flavor) break;
+
+        let quantity = prompt(`How many ${flavor} sodas do you want?`);
+        if (!quantity) break;
+
+        orderList.push(`- ${quantity} ${flavor}`);
+
+        let more = prompt("Do you want to add another flavor? (yes/no)");
+        if (!more || more.toLowerCase() === "no") {
+          addMore = false;
+        }
+      }
+
+      let location = prompt("Please enter your delivery location:");
+      if (!location) return;
+
+      let message = `Hi AR ENTERPRISES, I want to order:\n\n${orderList.join('\n')}\n\nLocation: ${location}`;
+      let encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/918590986069?text=${encodedMessage}`, "_blank");
+    }
+  </script>
+
+</body>
+</html>
